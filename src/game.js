@@ -10,11 +10,11 @@ canvas.height = innerHeight;
 const context = canvas.getContext("2d");
 const halfY = canvas.height / 2;
 const halfX = canvas.width / 2;
-const halfYPlayer = halfYPlayer - PLAYER_HEIGHT / 2;
+const halfYPlayer = halfY - PLAYER_HEIGHT / 2;
 
 const players = [
-  new Player(30, middleYPlayer, 0, 20, PLAYER_HEIGHT, context),
-  new Player(innerWidth - 50, middleYPlayer, 0, 20, PLAYER_HEIGHT, context),
+  new Player(30, halfYPlayer, 0, 20, PLAYER_HEIGHT, context),
+  new Player(innerWidth - 50, halfYPlayer, 0, 20, PLAYER_HEIGHT, context),
 ];
 
 const ball = new Ball(context, halfX, halfY, 10, 18);
