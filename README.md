@@ -1,5 +1,5 @@
 # PONG GAME
-
+### You can play it here: https://mmarcmartins.github.io/pong-js-canvas-game/
 ## Pong game for 2 players
 
 Only for study purposes.
