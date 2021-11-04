@@ -12,3 +12,5 @@ s => go down
 Player 2:  
 arrow up => go up  
 arrow down => go down
+
+![alt text](https://github.com/mmarcmartins/pong-js-canvas-game/blob/master/pong.jpg?raw=true)
