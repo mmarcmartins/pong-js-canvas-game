@@ -4,16 +4,11 @@
 
 Only for study purposes.
 
-Commands:
+# Commands:
+Player 1:  
+w => go up  
+s => go down  
 
-# Player 1:
-
-## w => go up
-
-## s => go down
-
-# Player 2:
-
-## arrow up => go up
-
-## arrow down => go down
+Player 2:  
+arrow up => go up  
+arrow down => go down
