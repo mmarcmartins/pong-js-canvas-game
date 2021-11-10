@@ -1,35 +1,34 @@
-import { PLAYER_HEIGHT } from "./constants.js";
+import {
+  PLAYER_HEIGHT,
+  CANVAS,
+  CONTEXT,
+  HALF_X,
+  HALF_Y,
+  HALF_Y_PLAYER,
+} from "./constants.js";
 import Player from "./player.js";
 import Ball from "./ball.js";
 import HandleInput from "./input.js";
 import Scenario from "./scenario.js";
 
-const canvas = document.querySelector("canvas");
-canvas.width = innerWidth;
-canvas.height = innerHeight;
-const context = canvas.getContext("2d");
-const halfY = canvas.height / 2;
-const halfX = canvas.width / 2;
-const halfYPlayer = halfY - PLAYER_HEIGHT / 2;
-
 const players = [
-  new Player(30, halfYPlayer, 0, 20, PLAYER_HEIGHT, context),
-  new Player(innerWidth - 50, halfYPlayer, 0, 20, PLAYER_HEIGHT, context),
+  new Player(30, HALF_Y_PLAYER, 0, 20, PLAYER_HEIGHT, CONTEXT),
+  new Player(innerWidth - 50, HALF_Y_PLAYER, 0, 20, PLAYER_HEIGHT, CONTEXT),
 ];
 
-const ball = new Ball(context, halfX, halfY, 10, 18);
+const ball = new Ball(CONTEXT, HALF_X, HALF_Y, 10, 18);
 const scenario = new Scenario(
-  context,
-  canvas.width,
-  canvas.height,
+  CONTEXT,
+  CANVAS.width,
+  CANVAS.height,
   players,
   ball
 );
-const inputLayer = new HandleInput(players, canvas.height);
+const inputLayer = new HandleInput(players, CANVAS.height);
 inputLayer.init();
 
 const clearScreen = () => {
-  context.clearRect(0, 0, canvas.width, canvas.height);
+  CONTEXT.clearRect(0, 0, CANVAS.width, CANVAS.height);
 };
 
 const drawObjects = () => {
@@ -43,7 +42,7 @@ const drawObjects = () => {
 const resetGame = (playerWinner) => {
   const newXvelocity = playerWinner === 0 ? ball.speed : ball.speed * -1;
   players[playerWinner].points += 1;
-  ball.reset(canvas.width / 2, canvas.height / 2, { x: newXvelocity, y: 0 });
+  ball.reset(CANVAS.width / 2, CANVAS.height / 2, { x: newXvelocity, y: 0 });
 };
 
 const gameLoop = () => {
@@ -58,8 +57,8 @@ const gameLoop = () => {
     if (collisionWithBoundries || collisionWithPlayer) {
       ball.bounce(
         collisionWithBoundries || collisionWithPlayer,
-        canvas.width,
-        canvas.height
+        CANVAS.width,
+        CANVAS.height
       );
     }
   } else {
